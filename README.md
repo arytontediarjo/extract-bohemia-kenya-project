@@ -13,11 +13,11 @@ This Github repository is used as a Docker microservice for extracting forms fro
 Use this [Dockerfile Reference](https://docs.docker.com/build/building/packaging/) to get familiar with Dockerfile. Once Dockerfile is built, run this command:
 
 ```zsh
-docker build -t your_image_name .
+docker build -t extract-bohemia-kenya-project .
 ```
 
 ### Testing Docker Image Locally
-Before pushing to Dockerhub, create a local Docker container to test on your local computer.
+Before pushing to Dockerhub, test it locally:
 
 ```zsh
 docker run extract-bohemia-kenya-project
