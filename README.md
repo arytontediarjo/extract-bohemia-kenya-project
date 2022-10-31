@@ -20,10 +20,10 @@ docker build -t your_image_name .
 Before pushing to Dockerhub, create a local Docker container to test on your local computer.
 
 ```zsh
-docker run your_image_name
+docker run extract-bohemia-kenya-project
 ```
 
-On certain cases, if you need to test pass environment variables for AWS and ODK authentication:
+On certain cases, you need to test pass environment variables for AWS and ODK authentication:
 
 ```zsh
 docker run \
@@ -32,7 +32,7 @@ docker run \
 -e AWS_SESSION_TOKEN=... \
 -e AWS_REGION= 'us-east-1' \
 -e ODK_CREDENTIALS_SECRETS_NAME='prod/odk-credentials' \
-your_image_name
+extract-bohemia-kenya-project
 ```
 
 ## Pushing to Dockerhub
