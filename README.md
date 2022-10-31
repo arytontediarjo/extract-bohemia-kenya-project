@@ -4,9 +4,41 @@
 ## About
 This Github repository is used as a Docker microservice for extracting forms from the Bohemia Kenya ODK Project. This repo will use a Docker to enable user to reproduce the process from start to finish. 
 
-## Contributing:
+## Contributing
 
-### Getting Started
+### Clone Repository
+```zsh
+git clone https://github.com/arytontediarjo/extract-bohemia-kenya-project.git
+```
+
+### Create a new branch
+```zsh
+git checkout -b feature_branch
+git push origin feature_branch
+```
+### Reproduce Analysis Environment
+This project uses [R renv](https://rstudio.github.io/renv/articles/renv.html) to act as a virtual environment and snapshots the library requirements and the version being used during the analysis. 
+
+```zsh
+# cd to your cloned project
+cd ..relative_path/extract-bohemia-kenya-project
+```
+In the project directory, run these following R commands:
+
+```r
+install.packages("renv")
+renv::init(bare=TRUE)
+renv::restore()
+```
+
+Once sync-ed with the project environment, you can start running the R scripts. All R-packages are being indexed into a Lockfile (renv.lock). To add more packages you can do the usual R installation and snapshot that information into the Lockfile.
+
+```r
+install.packages('your_new_package')
+renv::snapshot()
+```
+
+## Getting Started with Docker
 [Install Docker Desktop on Local Computer](https://docs.docker.com/desktop/)
 
 ### Build Docker Image
@@ -43,6 +75,6 @@ To push to Dockerhub, you will only need to push your code to Github remote main
 git push
 ```
 
-You can find your dockerhub under databrew/<image_name>
+You can find your Docker Image in Dockerhub under the name **databrew/extract-bohemia-kenya-project**
 
 
