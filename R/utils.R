@@ -21,8 +21,8 @@ create_s3_bucket <- function(s3obj, bucket_name){
 # save object to S3
 save_object_to_s3 <- function(s3obj, robject, bucket, bucket_path, fileext = ".csv"){
   # convert to file
-  file_path <- tempfile(fileext = fileext)
-  save(robject, file = file_path)
+  file_path <- paste0(tempdir(), "/", "temp.csv")
+  readr::write_csv(data, file = file_path)
 
   tryCatch({
     # Upload to bucket

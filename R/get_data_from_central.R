@@ -1,5 +1,5 @@
-# Description: 
-# - This script is used for extracting data from ODK Postgres and save it to 
+# Description:
+# - This script is used for extracting data from ODK Postgres and save it to
 # DataBrew S3 bucket
 #
 # Author: Aryton Tediarjo (atediarjo@gmail.com)
@@ -51,7 +51,8 @@ fid_list <- get_form_list() %>%
 purrr::map(fid_list, function(fid){
   bucket_path <- glue::glue('{prefix}{folder}/{fid}/{fid}.csv')
   data <- retrieve_data_from_central(fids = fid)
-  data %>%
+  data[[fid]] %>%
+    .$Submissions %>%
     save_object_to_s3(
       s3obj = s3obj,
       robject = .,
